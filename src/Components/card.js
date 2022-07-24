@@ -9,7 +9,7 @@ import { getProducts } from "../Redux/Actions/actionCreator";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
-export default function MediaCard() {
+export default function ProductCard() {
     const dispatch = useDispatch();
     const selector = useSelector((state) => state.products.title);
 
