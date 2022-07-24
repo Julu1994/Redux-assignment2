@@ -1,22 +1,35 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getProducts } from "../Redux/Actions/actionCreator";
 import ProductCard from "./card";
 
 export default function Products() {
-    const getProducts = async () => {
-        const data = await axios
+    const dispatch = useDispatch();
+    const ProductHandler = async () => {
+        const ShopData = await axios
             .get("https://fakestoreapi.com/products")
             .catch((error) => console.log(error));
-        console.log(data);
+        dispatch(getProducts(ShopData.data));
     };
+    const selector = useSelector((state) => state.fakeProducts);
+    console.log(selector, "selector");
+
     useEffect(() => {
-        getProducts();
+        ProductHandler();
     }, []);
 
     return (
         <div>
-            <ProductCard />
+            {selector.map((item) => (
+                <ProductCard
+                    key={item.id}
+                    title={item.title}
+                    description={item.description}
+                    price={item.price}
+                    productImg={item.image}
+                />
+            ))}
         </div>
     );
 }

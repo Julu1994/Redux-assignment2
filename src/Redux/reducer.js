@@ -1,17 +1,19 @@
 const initialState = {
-    products: {
-        id: 0,
-        title: "NULL TITLE",
-    },
+    fakeProducts: [
+        {
+            id: 1,
+            title: "Loading",
+            price: 0,
+            description: "No description availble",
+            image: "none",
+        },
+    ],
 };
 
 export const productReducer = (state = initialState, action) => {
     if (action.type === "GET-PRODUCTS") {
         return {
-            products: {
-                id: state.products.id + 10,
-                title: action.payload,
-            },
+            fakeProducts: action.payload,
         };
     }
     if (action.type === "ADD-PRODUCTS") {
