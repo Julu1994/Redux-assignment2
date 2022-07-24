@@ -6,26 +6,29 @@ import {
     CardMedia,
     Button,
     Typography,
-    Box,
     Grid,
 } from "@mui/material";
 
 export default function ProductCard({ title, price, description, productImg }) {
     return (
-        <Grid item xs={4}>
-            <Card sx={{ maxWidth: 345 }}>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Card
+                sx={{ maxWidth: 250, minHeight: 300 }}
+                alignItems="center"
+                justify="center"
+                style={{ margin: "auto" }}>
                 <CardMedia
                     component="img"
-                    height="140"
+                    height="180"
                     image={productImg}
                     alt="green iguana"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography gutterBottom variant="h7" component="div">
                         {title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        {description}
+                        Rating ⭐ {description}
                     </Typography>
                 </CardContent>
                 <CardActions>

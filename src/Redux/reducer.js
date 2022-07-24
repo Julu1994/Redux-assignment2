@@ -6,6 +6,9 @@ const initialState = {
             price: 0,
             description: "No description availble",
             image: "none",
+            rating: {
+                rate: 0.0,
+            },
         },
     ],
 };
