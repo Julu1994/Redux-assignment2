@@ -3,6 +3,7 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../Redux/Actions/actionCreator";
 import ProductCard from "./card";
+import { Box, Grid } from "@mui/material";
 
 export default function Products() {
     const dispatch = useDispatch();
@@ -20,16 +21,18 @@ export default function Products() {
     }, []);
 
     return (
-        <div>
-            {selector.map((item) => (
-                <ProductCard
-                    key={item.id}
-                    title={item.title}
-                    description={item.description}
-                    price={item.price}
-                    productImg={item.image}
-                />
-            ))}
-        </div>
+        <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={2}>
+                {selector.map((item) => (
+                    <ProductCard
+                        key={item.id}
+                        title={item.title}
+                        description={item.description}
+                        price={item.price}
+                        productImg={item.image}
+                    />
+                ))}
+            </Grid>
+        </Box>
     );
 }
