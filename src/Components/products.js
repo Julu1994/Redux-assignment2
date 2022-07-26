@@ -6,11 +6,11 @@ import { Grid } from "@mui/material";
 
 export default function Products() {
     const dispatch = useDispatch();
-    const selector = useSelector((state) => state.fakeProducts);
+    const selector = useSelector((state) => state.product.fakeProducts);
 
     useEffect(() => {
         dispatch(fetchData());
-    }, []);
+    }, [dispatch]);
 
     return (
         <Grid
