@@ -14,7 +14,7 @@ const initialState = {
 };
 
 export const productReducer = (state = initialState, action) => {
-    if (action.type === "GET-PRODUCTS") {
+    if (action.type === "GET_DATA") {
         return {
             fakeProducts: action.payload,
         };

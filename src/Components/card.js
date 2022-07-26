@@ -8,6 +8,11 @@ import {
     Typography,
     Grid,
 } from "@mui/material";
+const Style = {
+    height: 185,
+    width: 150,
+    margin: "auto",
+};
 
 export default function ProductCard({ title, price, description, productImg }) {
     return (
@@ -18,6 +23,7 @@ export default function ProductCard({ title, price, description, productImg }) {
                 justify="center"
                 style={{ margin: "auto" }}>
                 <CardMedia
+                    style={Style}
                     component="img"
                     height="180"
                     image={productImg}
